@@ -252,5 +252,138 @@ import datetime
 ############
 #JSON is a syntax for storing and exchanging data
 #JSON is text written with JavaScript notation
+#JSON is useful and used for serializing and transmitting structured data over a network connection
+#used primarily to transmit data between a server and a web application
+#python has in built package called json
+import json
+
+#Parse - convert from json to python ~~ i imagine useful after receiving the data over a network connection
+#some JSON (a string basically):
+# js = '{"name":"John", "age":30, "city":"New York"}'
+# #parse it:
+# pyt = json.loads(js)
+# #so should have converted the above string to a dictionary
+# print(pyt["age"])
+
+#Convert from python to JSON 'json.dumps()'
+# pyt={
+#     "name":"John",
+#     "age":30,
+#     "city":"New York"
+# }#dictionary
+# #convert to JSON:
+# js = json.dumps(pyt)
+# print(js) #result is a json string
+
+#convert a python object containing all of the legal data types:
+# x = {
+#   "name": "John",
+#   "age": 30,
+#   "married": True,
+#   "divorced": False,
+#   "children": ("Ann","Billy"),
+#   "pets": None,
+#   "cars": [
+#     {"model": "BMW 230", "mpg": 27.5},
+#     {"model": "Ford Edge", "mpg": 24.1}
+#   ]
+# }
+# print(x)
+# print(json.dumps(x))
+# #this produces a json string but it is not very easy to read so lets format it
+# #can indent it and choose the separators
+# print(json.dumps(x,indent=4, separators=(". ", " = ")))#changes the default separators '.' to '='
+# #order the results
+# print(json.dumps(x,indent=4, separators=(". ", " = "),sort_keys=True))
+
+
+#############
+### RegEx ###
+
+#'regular expression' is a sequence of characters that forms a search pattern
+#can be used to check if a string contains the specified search pattern
+#the built in module is called 're'
+import re as regex
+
+# txt="The rain in Spain"
+#search the string to see if it starts with 'The' and ends with 'Spain'
+# search1 = regex.search("^The.*Spain$",txt)
+# print(search1)
+###############################################################################
+#again there is a long list of functions and metacharacters defined well on W3#
+###############################################################################
+#find all
+# search2 = regex.findall("ai",txt)
+# print(search2)#just prints a list of all matches, not immediately helpful
+# search3 = regex.search("\s",txt) #finds the white spaces
+# print(search3.start()) #shows the first postition of a white space
+# search4 = regex.split("\s",txt)
+# print(search4) #this returns a list where the string has been split at each match
+# search5 =regex.split("\s",txt,1)#split only at the first occurence
+# print(search5)
+# search6 = regex.sub("Spain","Africa",txt) #replaces the occurence with 'Africa
+# print(search6)
+# search7 = regex.sub("\s","_",txt,2)#replace first 2 occurences
+# print(search7)
+
+#practicing pip install for pycharm
+# import camelcase
+# # c=camelcase.CamelCase()
+# # txt="hello world"
+# # print(c.hump(txt))
+
+###################
+### TRY..EXCEPT ###
+
+#try lets you test a block of code for errors
+#except lets you handle the error if one occurs
+#the finally block lets you execute the code regardless of the results of the above two
+
+#essentially allows you to carry on a block of code even if an error occurs
+#could be very useful in a loop where not all instances of data will fit the required format
+
+# try:
+#     print(x) #this will throw up an error as x is not defined
+# except NameError: #NameError is specific if something is not defined
+#     print("variable x is not defined")
+# except: #this will be used if there is a different type of error
+#     print("something else went wrong")
+#
+# try:
+#     print("hello")
+# except:
+#     print("there was an error")
+# else:                           #the else allows you to execute some code if no errors occur
+#     print("nothing went wrong")
+#
+# try:
+#     print(x)
+# except:
+#     print("there was an error")
+# finally:                           #The 'Finish' statement will execute whether there is an error or not
+#     print("The 'try except' is finished")
+#
+# try:
+#     f = open("demofile.txt")
+#     f.write("demo input")
+# except:
+#     print("something went wrong")
+# finally:
+#     f.close()
+
+#RAISE AN EXCEPTION
+
+#raise an error and stop the program if x is lower than 0
+# x=-1
+# if x <0:
+#     raise Exception("sorry, no numbers below zero") #prints as a red error message
+
+# x="hello"
+# if not type(x) is int:
+#     raise TypeError("only integers allowed")
+
+
+
+
 
 
