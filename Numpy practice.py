@@ -172,27 +172,123 @@ import numpy as np
 # joined = np.concatenate((arr1,arr2),axis=1)
 # print(joined)#so this joins the first two arrays together and the second two arrays together
 
-#USING A STACK FUNCTION#
-#stacking is done along a new axis
-arr1 = np.array([1,2,3])
-arr2 = np.array([4,5,6])
-stacked=np.stack((arr1,arr2),axis=1)
-print(stacked) #creates a new axis
+# #USING A STACK FUNCTION#
+# #stacking is done along a new axis
+# arr1 = np.array([1,2,3])
+# arr2 = np.array([4,5,6])
+# stacked=np.stack((arr1,arr2),axis=1)
+# print(stacked) #creates a new axis
+#
+# #stacking along rows using 'hstack'
+# arr1 = np.array([1,2,3])
+# arr2 = np.array([4,5,6])
+# rowstack = np.hstack((arr1,arr2))
+# print(rowstack)
+#
+# #stacking along columns using 'vstack'
+# arr1 = np.array([1,2,3])
+# arr2 = np.array([4,5,6])
+# colstack = np.vstack((arr1,arr2))
+# print(colstack)
+#
+# #Stacking along height (depth) using 'dstack'
+# arr1 = np.array([1,2,3])
+# arr2 = np.array([4,5,6])
+# heightstack = np.dstack((arr1,arr2))
+# print(heightstack)
 
-#stacking along rows using 'hstack'
-arr1 = np.array([1,2,3])
-arr2 = np.array([4,5,6])
-rowstack = np.hstack((arr1,arr2))
-print(rowstack)
+## SPLITTING NUMPY ARRAYS ##
+#reverse operation of joining
+#breaks one array into multiple
+#'array_split()'
 
-#stacking along columns using 'vstack'
-arr1 = np.array([1,2,3])
-arr2 = np.array([4,5,6])
-colstack = np.vstack((arr1,arr2))
-print(colstack)
+# arr1D = np.array([1,2,3,4,5,6])
+# split = np.array_split(arr1D,4) #split it into 4 parts
+# print(split)
+# #the new arrays can be accessed as a normal array
+# print(split[1])
+#
+# arr2D = np.array([[1,2,20],[3,4,21],[5,6,22],[7,8,23],[9,10,24],[11,12,25]]) #splitting 2D arrays uses the same syntax
+# split2D = np.array_split(arr2D,3)
+# print(split2D)# creates 3 2D arrays each with 2 arrays in them
+#
+# arr2D = np.array([[1,2,20],[3,4,21],[5,6,22],[7,8,23],[9,10,24],[11,12,25]])
+# split2D = np.array_split(arr2D,3,axis=1) #deciding on the axis of the split, this keeps all of the first elements together
+# print(split2D)
 
-#Stacking along height (depth) using 'dstack'
-arr1 = np.array([1,2,3])
-arr2 = np.array([4,5,6])
-heightstack = np.dstack((arr1,arr2))
-print(heightstack)
+
+## using 'hsplit' (opposite of hstack)
+# arr2D = np.array([[1,2,20],[3,4,21],[5,6,22],[7,8,23],[9,10,24],[11,12,25]])
+# newarr = np.hsplit(arr2D,3)
+# print(newarr)
+
+########################
+### SEARCHING ARRAYS ###
+
+#CAN SEARCH AN ARRAY FOR A CERTAIN VALUE
+#use the 'where()' method
+#
+# arr = np.array([1,2,3,4,5,4,4,6])
+# x=np.where(arr==4)
+# print(x) #shows the index of each 4 in the array
+# y=np.where(arr%2 == 0)
+# print(y)
+
+#'searchsorted()' performs a binary search on an array and returns the index where the specified value would be inserted
+#to maintain the search order
+#
+# arr = np.array([6,8,9])
+# x=np.searchsorted(arr,7)
+# print(x) #the number 7should be inserted at index 1, the method starts from the left and returns the first index where
+# #number 7 is no longer  larger than the next value
+# arr = np.array([6,8,9,8,6])
+# y=np.searchsorted(arr,7,side="right") #start the search from the right
+# print(y)
+#
+# arr = np.array([1,3,5,7])
+# x=np.searchsorted(arr,[2,4,6]) #search for the positions of more than one value
+# print(x)
+
+### Sorting NUmpy arrays ###
+############################
+#putting elements in an ordered sequence
+#numeric or alphabetical
+#'sort()'
+
+# arr = np.array([3,2,0,1])
+# print(np.sort(arr))
+#
+# arrstr = np.array(['banana','cherry','apple'])
+# print(np.sort(arrstr))
+#
+# arrbool = np.array([True,False,True])
+# print(np.sort(arrbool))
+#
+# arr2D = np.array([[3,2,8],[6,9,1]])
+# print(np.sort(arr2D)) #sorts each array in the dimension separately
+
+
+########################
+### filtering arrays ###
+
+#getting some elements out of an existing array and making a new one
+#using a boolean index list - if the value at the index is true then it is contained in the filtered array
+
+arr = np.array([33,76,112,168,232,85,12]) #we will filter this for all values above 100
+
+filter_arr = []
+
+for element in arr:
+    if element >100:
+        filter_arr.append(True)
+    else:
+        filter_arr.append(False)
+newarr = arr[filter_arr] #so takes all the values from arr where its index is true for the condition
+print(filter_arr)
+print(newarr)
+
+#creating a filter directly from an array:
+filter_arr = arr>100
+newarr = arr[filter_arr]
+print(filter_arr)
+print(newarr)
