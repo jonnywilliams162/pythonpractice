@@ -104,6 +104,16 @@
 # totriple=lamb(3)
 # print(totriple(11)) #making another function out of that function
 
+# def add(num1,num2):
+#     return num1+num2
+# addition = lambda num1, num2:num1+num2
+# print(add(23,45))
+# print(addition(23,45))
+#
+# savings = [234,567,674,78]
+# bonus=list(map(lambda x:x*1.1,savings)) #'map' essentially goes through each of the values in the list (can go through every iterable)
+# print(bonus)
+
 ###############
 ### CLASSES ###
 

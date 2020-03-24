@@ -274,21 +274,21 @@ import numpy as np
 #getting some elements out of an existing array and making a new one
 #using a boolean index list - if the value at the index is true then it is contained in the filtered array
 
-arr = np.array([33,76,112,168,232,85,12]) #we will filter this for all values above 100
-
-filter_arr = []
-
-for element in arr:
-    if element >100:
-        filter_arr.append(True)
-    else:
-        filter_arr.append(False)
-newarr = arr[filter_arr] #so takes all the values from arr where its index is true for the condition
-print(filter_arr)
-print(newarr)
-
-#creating a filter directly from an array:
-filter_arr = arr>100
-newarr = arr[filter_arr]
-print(filter_arr)
-print(newarr)
+# arr = np.array([33,76,112,168,232,85,12]) #we will filter this for all values above 100
+#
+# filter_arr = []
+#
+# for element in arr:
+#     if element >100:
+#         filter_arr.append(True)
+#     else:
+#         filter_arr.append(False)
+# newarr = arr[filter_arr] #so takes all the values from arr where its index is true for the condition
+# print(filter_arr)
+# print(newarr)
+#
+# #creating a filter directly from an array:
+# filter_arr = arr>100
+# newarr = arr[filter_arr]
+# print(filter_arr)
+# print(newarr)
