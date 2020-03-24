@@ -393,7 +393,63 @@ import re as regex
 #     raise TypeError("only integers allowed")
 
 
+##########################
+#### MACHINE LEARNING ####
+##########################
+
+#numerical - discrete or continuous
+#categorical
+#ordinal - like categorical but relate to each other, e.g. grades A to F, A being better than B etc
+
+### Mean, Median, Mode
+speed = [99,34,76,103,66,78,98,77,45,36,26,109,178,60,52,75,99,99,84,33,76,102,122,113,64,88,87,45]
+import numpy as np
+# x=np.mean(speed)
+# print(x)
+#
+# y=np.median(speed)
+# print(y)
+#
+from scipy import stats
+# z=stats.mode(speed)
+# print(z)
+#
+# #STANDARD DEVIATION#
+# #describes how spread the values are
+# #a low standard deviation means the values are close to the mean
+#
+# dev = np.std(speed)
+# print(dev) #a Stdev of 34 means that most of the values are within the mean plus/minus 34
+#
+# #VARIANCE#
+# #also describes the spread, is just the SD squared
+# var = np.var(speed)
+# print(var)
+
+## PERCENTILES ##
+#gives a number that describes the value that a given percent of the values are lower than
+
+# x=np.percentile(speed,75) #lets find the 75th percentile
+# print(x) #so 75% of the values are below 99
+# y=np.percentile(speed,99)
+# print(y)
+
+### DATA DISTRIBUTION ###
+#########################
+#real world data is much much bigger than what we've been using
+
+#lets create a randomly generated large data set
+large = np.random.uniform(0.0,10.0,500) #creating an array containing 500 random floats between 1 and 10
 
 
+#use a HISTOGRAM to visualise the data using matplotlib
+import matplotlib.pyplot as plt
+#plt.hist(large,5) #5 represents how many bins we will have, so for this example each bin will have 2 values
+#plt.show()
+
+###NORMAL DISTRIBUTIONS
+realbig = np.random.normal(5.0,1.0,100000) #So 100,000 data points, around the mean 5 with a standard deviation of 1 - i.e. rarely further away than 1 from the mean
+plt.hist(realbig,100)
+plt.show()
 
 
