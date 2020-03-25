@@ -452,4 +452,6 @@ realbig = np.random.normal(5.0,1.0,100000) #So 100,000 data points, around the m
 plt.hist(realbig,100)
 plt.show()
 
+#cd '/c/Users/Jonathan Williams/PycharmProjects/pythonpractice'
+
 
